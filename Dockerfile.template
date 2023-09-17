@@ -1,0 +1,8 @@
+FROM eclipse-temurin:17.0.6_10-jre
+ENV APP_FILE <filename>-*.jar
+ENV APP_HOME /app
+EXPOSE 8088
+COPY target/$APP_FILE $APP_HOME/<filename>.jar
+WORKDIR $APP_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar <filename>.jar"]
